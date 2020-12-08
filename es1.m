@@ -124,11 +124,7 @@ Orb_minus = plot3(minus_y(:,1), minus_y(:,2), minus_y(:,3),'b','LineWidth',2);
 hold on
 Orb_plus = plot3(plus_y(:,1), plus_y(:,2), plus_y(:,3),'r','LineWidth',2);
 hold on
-[x,y,z] = sphere(10);
-sun_r = 0.1;
-sun = surf(x*sun_r, y*sun_r, z*sun_r);
-set(sun,'facecolor',[1 1 0]);
-view(0,90)
+run Plot_Sun
 legend('Before Fly-by', 'After Fly-by');
 %axis equal
 grid on
