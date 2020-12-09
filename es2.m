@@ -13,17 +13,6 @@ mu_S = astroConstants(4);
 mu_E = astroConstants(13);
 Re = astroConstants(23);
 
-flyby_location = 'front';
-switch flyby_location
-case 'front'
-    u = [0;0;-1];
-    case 'behind'
-        u = [0;0;1];
-    case 'under'
-        u = cross ([0;0;-1],vinfM/norm(vinfM));
-    case 'over'
-        u = cross([0;0;1],vinfM/norm(vinfM));
-end
 
 Vpl_norm = sqrt(mu_S/norm(r)); %take it from Eph in assignment
 Vpl = cross([0;0;1],r/norm(r)).*Vpl_norm;
@@ -33,6 +22,8 @@ vinfP = V_P-Vpl;
 
 [deltav_perig,rp,delta,arcs] = flybyPow(vinfM,vinfP,mu_E,Re);
 
+u = cross(vinfM,vinfP);
+u = u/norm(u);          % normal to orbital plane
 
 
 %%
